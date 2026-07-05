@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pethan_portfolio/core/constants/keys.dart';
 import 'package:pethan_portfolio/core/router/app_router.dart';
 import 'package:pethan_portfolio/core/router/route_names.dart';
 import 'package:pethan_portfolio/core/theme/app_theme.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
       theme: AppTheme.darkTheme,
       initialRoute: RouteNames.dashboard,
       onGenerateRoute: AppRouter.generateRoute,

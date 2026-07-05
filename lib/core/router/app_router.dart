@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pethan_portfolio/feature/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:pethan_portfolio/feature/home/presentation/pages/dashboard_page.dart';
 import 'route_names.dart';
 
 class AppRouter {

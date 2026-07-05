@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pethan_portfolio/core/constants/app_assets.dart';
 import 'package:pethan_portfolio/core/constants/app_colors.dart';
-import '../widgets/glass_card.dart';
+import 'package:pethan_portfolio/core/theme/app_decoration.dart';
+import '../../widgets/glass_card.dart';
 
 class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});
@@ -20,20 +21,21 @@ class SkillsSection extends StatelessWidget {
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 24.0),
       child: GlassCard(
         radius: 12,
         padding: const EdgeInsets.all(24),
+        boxDecoration: AppDecoration.glassDecoration(),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               children: [
-                Icon(Icons.circle_outlined, color: AppColors.gold, size: 32),
+                Icon(Icons.circle_outlined, color: AppColors.gold, size: 24),
                 SizedBox(width: 10),
                 Text(
-                  "Tech Stack",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+                  "Core Technologies",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
                 ),
               ],
             ),
@@ -79,14 +81,14 @@ class OrbitPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
 
     final rings = [
-      {'w': size.width * 0.95, 'h': size.height * 0.75, 'opacity': 0.10},
-      {'w': size.width * 0.75, 'h': size.height * 0.55, 'opacity': 0.15},
-      {'w': size.width * 0.50, 'h': size.height * 0.32, 'opacity': 0.20},
+      {'w': size.width * 0.95, 'h': size.height * 0.75, 'opacity': 10},
+      {'w': size.width * 0.75, 'h': size.height * 0.55, 'opacity': 15},
+      {'w': size.width * 0.50, 'h': size.height * 0.32, 'opacity': 20},
     ];
 
     for (final ring in rings) {
       final paint = Paint()
-        ..color = const Color(0xFFF4C542).withOpacity(ring['opacity'] as double)
+        ..color = Color(0xFFF4C542).withAlpha(ring['opacity'] as int)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1.2;
 
@@ -147,7 +149,7 @@ class _SkillBubbleState extends State<SkillBubble> {
           shape: BoxShape.circle,
           color: AppColors.glass,
           border: Border.all(
-            color: isHover ? AppColors.gold : AppColors.gold.withAlpha(80),
+            color: isHover ? AppColors.gold : AppColors.gold.withAlpha(20),
             width: 1.2,
           ),
           boxShadow: [

@@ -62,13 +62,7 @@ class _CustomButtonState extends State<CustomButton> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              onHover
-                  ? AnimatedContainer(
-                      duration: const Duration(milliseconds: 250),
-                      width: 16,
-                      color: AppColors.background,
-                    )
-                  : 8.w,
+              onHover ? 16.w : 8.w,
               AnimatedRotation(
                 turns: onHover ? 0 : -0.25,
                 duration: const Duration(milliseconds: 250),

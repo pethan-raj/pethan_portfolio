@@ -8,9 +8,11 @@ import 'package:pethan_portfolio/core/constants/app_colors.dart';
 import 'package:pethan_portfolio/core/theme/app_decoration.dart';
 import 'package:pethan_portfolio/core/utils/app_extensions.dart';
 import 'package:pethan_portfolio/core/utils/app_responsice.dart';
-import 'package:pethan_portfolio/feature/dashboard/presentation/widgets/custom_button.dart';
-import 'package:pethan_portfolio/feature/dashboard/presentation/widgets/glass_card.dart';
-import 'package:pethan_portfolio/feature/dashboard/presentation/widgets/tech_badge.dart';
+import 'package:pethan_portfolio/feature/home/presentation/controller/home_controller.dart';
+import 'package:pethan_portfolio/feature/home/widgets/custom_button.dart';
+import 'package:pethan_portfolio/feature/home/widgets/glass_card.dart';
+import 'package:pethan_portfolio/feature/home/widgets/tech_badge.dart';
+import 'package:provider/provider.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({super.key});
@@ -84,11 +86,20 @@ class HeroLeft extends StatelessWidget {
 
         Row(
           children: [
-            CustomButton(text: "Hire Me", onTap: () {}),
+            CustomButton(
+              text: "Hire Me",
+              onTap: () {
+                context.read<HomeController>().launchEmail();
+              },
+            ),
             16.w,
             CustomButton(
               text: "Resume",
-              onTap: () {},
+              onTap: () {
+                context.read<HomeController>().launchURL(
+                  path: AppAssets.resume,
+                );
+              },
               type: ButtonType.outline,
             ),
           ],

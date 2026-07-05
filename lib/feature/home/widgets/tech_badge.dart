@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pethan_portfolio/core/constants/app_colors.dart';
-import 'package:pethan_portfolio/feature/dashboard/presentation/widgets/glass_card.dart';
+import 'package:pethan_portfolio/feature/home/widgets/glass_card.dart';
 
 class TechBadge extends StatelessWidget {
   final Widget child;

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pethan_portfolio/core/constants/app_assets.dart';
 import 'package:pethan_portfolio/core/constants/app_colors.dart';
 import 'package:pethan_portfolio/core/utils/app_extensions.dart';
-import '../widgets/glass_card.dart';
-import '../widgets/custom_button.dart';
+import 'package:pethan_portfolio/feature/home/presentation/controller/home_controller.dart';
+import 'package:pethan_portfolio/feature/home/widgets/follow_ui.dart';
+import 'package:provider/provider.dart';
+import '../../widgets/glass_card.dart';
+import '../../widgets/custom_button.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -91,10 +94,14 @@ class ContactLeftBlock extends StatelessWidget {
         ),
 
         30.h,
-
         Row(
           children: [
-            CustomButton(text: "Get In Touch", onTap: () {}),
+            CustomButton(
+              text: "Get In Touch",
+              onTap: () {
+                context.read<HomeController>().launchEmail();
+              },
+            ),
             20.w,
             Container(
               width: 58,
@@ -169,20 +176,27 @@ class ContactOrbBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: 220,
-        height: 220,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.gold.withOpacity(0.25),
-              blurRadius: 50,
-              spreadRadius: 4,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 220,
+            height: 220,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.gold.withAlpha(45),
+                  blurRadius: 50,
+                  spreadRadius: 4,
+                ),
+              ],
             ),
-          ],
-        ),
-        child: Image.asset(AppAssets.pfIcon),
+            child: Image.asset(AppAssets.pfIcon),
+          ),
+          SizedBox(height: 28),
+          FollowUI(),
+        ],
       ),
     );
   }

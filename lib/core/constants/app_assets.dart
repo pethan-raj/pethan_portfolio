@@ -11,5 +11,7 @@ class AppAssets {
   static const String kotlin = '$_path/kotlin.png';
   static const String spring = '$_path/spring.png';
   static const String jetpack = '$_path/jetpack.png';
-  
+
+  //resume
+  static const String resume = '$_path/pethan_resume.pdf';
 }
